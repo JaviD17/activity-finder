@@ -10,6 +10,14 @@ var getSearch = function(event) {
 
     // console log may be deleted later
     console.log(searchTopic);
+
+    if(searchTopic){
+        // clear old content
+        searchEl.value = "";
+    }
+    else {
+        alert("Please enter a topic to search");
+    }
 };
 
 searchContainerEl.addEventListener("submit", getSearch);

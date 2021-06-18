@@ -1,0 +1,20 @@
+* {
+    margin: auto
+}
+body {
+    background-color: lightgrey;
+}
+.header-section {
+    background-color: black;
+    padding: 3% 4%;
+    color: White;
+}
+.prev-search-item {
+    width: 75%;
+    font-size: 1.5;
+    padding: 8px 15px;
+    background-color: darkslategray;
+    color: white;
+    margin: 10px; 
+    border: black 3px solid;
+}

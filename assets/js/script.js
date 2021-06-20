@@ -11,6 +11,12 @@ var getSearch = function(event) {
     // console log may be deleted later
     console.log(searchTopic);
 
+    var search = function() {
+        window.location.href = "./index-2.html#" + searchTopic; 
+    }
+
+    search()
+
     if(searchTopic){
         // clear old content
         searchEl.value = "";

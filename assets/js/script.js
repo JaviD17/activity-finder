@@ -15,10 +15,9 @@ var getSearch = function(event) {
         window.location.href = "./index-2.html#" + searchTopic; 
     }
 
-    search()
-
     if(searchTopic){
         // clear old content
+        search()
         searchEl.value = "";
     }
     else {

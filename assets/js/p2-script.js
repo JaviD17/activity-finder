@@ -1,45 +1,43 @@
-const axios = require("axios")
-
 var eventcontEl = document.querySelector(".results-list");
+var listItemEl = document.querySelector(".result-item");
 
 var getSearchTerm = function() {
     var queryString = document.location.href
     var searchTerm = queryString.split("#")[1]
+    searchBreweries(searchTerm)
 }
 
-let API_KEY = "er0ZXFHh6nYx9FXwkH6h4Rn8k0Ijiyzc4S-41yN09MFenzXQHm5mDuy96C7_P9gB5hG3H2WF9Q0dxYzEneomJ3rqOrXVxHVsU0X6OCfM-t6aiCnWH7jGpqnIPJPPYHYx"
+var searchBreweries = function(searchTerm) {
+    var apiUrl = "https://api.openbrewerydb.org/breweries/search?query=" + searchTerm;
+    fetch(apiUrl)
+        .then(function(response) {
+            if (response.ok) {
+                response.json().then(function(data) {
+                    for (i = 0; i < data.length ; i++) {
+                        if (data[i].street === null) {
+                            i++;
+                            break;
+                        } else {
+                            var brewList = document.createElement("li");
+                            brewList.className = "result-item-" + [i];
+                            var brewName = document.createElement("h3");
+                            brewName.innerText = data[i].name;
+                            brewName.className = "brewery-name";
+                            var brewAddress = document.createElement("address");
+                            brewAddress.innerText = data[i].street + ", " + data[i].city + ", " + data[i].state;
 
-let yelpREST = axios.create({
-    baseURL: "https://api.yelp.com/v3/",
-    headers: {
-        Authorization: 'Bearer er0ZXFHh6nYx9FXwkH6h4Rn8k0Ijiyzc4S-41yN09MFenzXQHm5mDuy96C7_P9gB5hG3H2WF9Q0dxYzEneomJ3rqOrXVxHVsU0X6OCfM-t6aiCnWH7jGpqnIPJPPYHYx',
-        "Content-type": "application/json",
-    },
-})
-
-yelpREST("/businesses/search", {
-    params: {
-        location: "austin",
-        term: searchTerm,
-        limit: 10,
-    }
-}).then(({data}) => {
-    console.log(data)
-})
-
-// var getSearchResults = function(searchTerm) {
-//     var apiUrl = "https://api.yelp.com/v3/businesses/search?term=";
-//     $.ajax({
-//         url: apiUrl,
-//         headers: {
-//             'Authorization' : "Bearer er0ZXFHh6nYx9FXwkH6h4Rn8k0Ijiyzc4S-41yN09MFenzXQHm5mDuy96C7_P9gB5hG3H2WF9Q0dxYzEneomJ3rqOrXVxHVsU0X6OCfM-t6aiCnWH7jGpqnIPJPPYHYx",
-//         },
-//         dataType: "jsonp",
-//         method: "GET",
-//         success: function(data){
-//             console.log(data)
-//         }
-//     })
-// }
+                            brewList.appendChild(brewName);
+                            brewList.appendChild(brewAddress);
+                            eventcontEl.appendChild(brewList);
+                        }
+                    }
+                   
+                })
+            } else {
+                
+            }
+            
+        })
+}
 
 getSearchTerm()

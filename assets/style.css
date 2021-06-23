@@ -18,3 +18,19 @@ body {
     margin: 10px; 
     border: black 3px solid;
 }
+<<<<<<< HEAD
+=======
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: brown;
+}
+
+.brewery-name:hover {
+    font-style: italic;
+}
+>>>>>>> develop

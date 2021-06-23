@@ -40,9 +40,11 @@ var listBreweries = function (data) {
             var brewName = document.createElement("h3");
             brewName.innerText = data[i].name;
             brewName.className = "brewery-name";
+
+            var breweryId = brewName.textContent
             
             var brewLink = document.createElement("a")
-            brewLink.setAttribute("href", "./index-3.html#" + brewName.textContent)
+            brewLink.setAttribute("href", "./index-3.html#" + breweryId)
             
             var brewAddress = document.createElement("address");
             brewAddress.innerText = data[i].street + ", " + data[i].city + ", " + data[i].state;

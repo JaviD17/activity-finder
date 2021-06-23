@@ -8,15 +8,17 @@ M.Slider.init(slider, {
 });
 
 // autocomplete
-var autoComp = document.querySelector(".autocomplete");
-M.Autocomplete.init(autoComp, {
-    data: {
-        "Austin": null,
-        "Houston": null,
-        "RoundRock": null,
-        "Los Angeles": null,
-        "Miami": null,
-        "Dallas": null,
-        "Atlanta": null,
-    }
+document.addEventListener('DomContentLoaded', function() {            
+    var inputField = document.querySelector('.autocomplete');
+    M.Autocomplete.init(inputField,{
+        data: {
+            'Austin':null,
+            'Houston':null,
+            'RoundRock':null,
+            'Los Angeles':null,
+            'Miami':null,
+            'Dallas':null,
+            'Atlanta':null
+        }
+    });
 });

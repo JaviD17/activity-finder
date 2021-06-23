@@ -11,13 +11,18 @@ var getSearch = function(event) {
     // console log may be deleted later
     console.log(searchTopic);
 
+    var search = function() {
+        window.location.href = "./index-2.html#" + searchTopic; 
+    }
+
     if(searchTopic){
         // clear old content
+        search()
         searchEl.value = "";
     }
     else {
         alert("Please enter a topic to search");
     }
 };
-'use strict';
 
+searchContainerEl.addEventListener("submit", getSearch);

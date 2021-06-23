@@ -16,7 +16,10 @@ var generateBreweries = function(brewId) {
                 brewAddress.textContent = data.street + " " + data.city + ", " + data.state;
                 var brewPhone = document.querySelector(".phone");
                 brewPhone.textContent = data.phone;
-                debugger;
+                var brewURL= document.createElement("a");
+                brewURL.setAttribute("href", data.url)
+                URLEl = document.querySelector(".url");
+                URLEl.appendChild(brewURL);
                 }
             )}
     }

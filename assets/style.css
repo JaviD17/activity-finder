@@ -32,6 +32,7 @@ a:hover {
     font-style: italic;
 }
 
+
 .modal-alerts{
     display: none;
 }
@@ -43,3 +44,4 @@ a:hover {
 .w3-container-alert-item {
     font-size: 25px;
 }
+

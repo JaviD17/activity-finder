@@ -20,7 +20,11 @@ var generateBreweries = function (brewId) {
                     var brewPhone = document.querySelector(".phone");
                     brewPhone.textContent = phoneNumFormatted;
 
-                    //debugger;
+                    var brewURL= document.createElement("a");
+                brewURL.setAttribute("href", data.website_url)
+                URLEl = document.querySelector(".url");
+                brewURL.textContent = data.website_url;
+                URLEl.appendChild(brewURL);
                 }
                 )
             }

@@ -1,5 +1,6 @@
 var searchContainerEl = document.getElementById("search-form-container");
 var searchEl = document.getElementById("search");
+var triggerBtn = document.getElementById("modal-search-alert");
 
 var getSearch = function(event) {
     // prevent page refresh
@@ -21,7 +22,7 @@ var getSearch = function(event) {
         searchEl.value = "";
     }
     else {
-        alert("Please enter a topic to search");
+        triggerBtn.click();
     }
 };
 

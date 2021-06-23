@@ -1,4 +1,5 @@
 var eventcontEl = document.querySelector(".results-list");
+var triggerBtn = document.getElementById("modal-script-api-error");
 
 var getSearchTerm = function () {
     var queryString = document.location.href;
@@ -20,7 +21,6 @@ var searchBreweries = function (searchTerm) {
             } else {
                 alert("Error: " + response.statusText);
             }
-
         })
         .catch(function (error) {
             alert("Unable to connect to OpenBreweries");
@@ -36,16 +36,16 @@ var listBreweries = function (data) {
         else {
             var brewList = document.createElement("li");
             brewList.className = "result-item-" + [i];
-            
+
             var brewName = document.createElement("h3");
             brewName.innerText = data[i].name;
             brewName.className = "brewery-name";
 
             var breweryId = data[i].id
-            
+
             var brewLink = document.createElement("a")
             brewLink.setAttribute("href", "./index-3.html#" + breweryId)
-            
+
             var brewAddress = document.createElement("address");
             brewAddress.innerText = data[i].street + ", " + data[i].city + ", " + data[i].state;
 

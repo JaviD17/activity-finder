@@ -31,3 +31,17 @@ a:hover {
 .brewery-name:hover {
     font-style: italic;
 }
+
+
+.modal-alerts{
+    display: none;
+}
+
+.w3-container-alert-title {
+    font-style: 40px;
+}
+
+.w3-container-alert-item {
+    font-size: 25px;
+}
+

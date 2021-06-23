@@ -41,7 +41,7 @@ var listBreweries = function (data) {
             brewName.innerText = data[i].name;
             brewName.className = "brewery-name";
 
-            var breweryId = brewName.textContent
+            var breweryId = data[i].id
             
             var brewLink = document.createElement("a")
             brewLink.setAttribute("href", "./index-3.html#" + breweryId)

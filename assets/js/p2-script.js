@@ -1,13 +1,10 @@
 var eventcontEl = document.querySelector(".results-list");
-var listItemEl = document.querySelector(".result-item");
 
 var getSearchTerm = function () {
     var queryString = document.location.href;
     // listing entire search term
-    console.log(queryString);
     var searchTerm = queryString.split("#")[1];
     // listing split search term
-    console.log(searchTerm);
     searchBreweries(searchTerm);
 };
 
@@ -16,9 +13,7 @@ var searchBreweries = function (searchTerm) {
     fetch(apiUrl)
         .then(function (response) {
             if (response.ok) {
-                console.log(response);
                 response.json().then(function (data) {
-                    console.log(data);
                     // call listBreweries function
                     listBreweries(data);
                 })
@@ -41,14 +36,22 @@ var listBreweries = function (data) {
         else {
             var brewList = document.createElement("li");
             brewList.className = "result-item-" + [i];
+            
             var brewName = document.createElement("h3");
             brewName.innerText = data[i].name;
             brewName.className = "brewery-name";
+
+            var breweryId = data[i].id
+            
+            var brewLink = document.createElement("a")
+            brewLink.setAttribute("href", "./index-3.html#" + breweryId)
+            
             var brewAddress = document.createElement("address");
             brewAddress.innerText = data[i].street + ", " + data[i].city + ", " + data[i].state;
 
-            brewList.appendChild(brewName);
-            brewList.appendChild(brewAddress);
+            brewLink.appendChild(brewName);
+            brewLink.appendChild(brewAddress);
+            brewList.appendChild(brewLink)
             eventcontEl.appendChild(brewList);
         }
     }

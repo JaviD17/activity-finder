@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="./assets/style.css">
     <title>Austin Activity Finder</title>
 </head>
+
 <body>
     <header>
         <div class="header-section">
@@ -27,7 +30,9 @@
 
         <section class="about-the-site">
             <h2 class="about-title">How To Use</h2>
-            <p class="expl-par">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero laudantium sapiente aliquid sed necessitatibus totam, in animi error voluptate? Rem cupiditate amet, animi ipsam officiis nam temporibus. Veritatis, similique iusto.</p>
+            <p class="expl-par">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero laudantium sapiente
+                aliquid sed necessitatibus totam, in animi error voluptate? Rem cupiditate amet, animi ipsam officiis
+                nam temporibus. Veritatis, similique iusto.</p>
         </section>
 
         <div class="prev-search-con">
@@ -58,7 +63,47 @@
                 </li>
             </ul>
         </div>
-    
-    <script src="./assets/js/script.js"></script>
+
+        <!-- Modal for incorrect search -->
+        <div class="w3-container">
+
+            <button id="modal-search-alert" onclick="document.getElementById('id01').style.display='block'"
+                class="w3-button w3-black modal-alerts">Fade In Modal</button>
+
+            <div id="id01" class="w3-modal w3-animate-opacity">
+                <div class="w3-modal-content w3-card-4">
+                    <header class="w3-container w3-red">
+                        <span onclick="document.getElementById('id01').style.display='none'"
+                            class="w3-button w3-large w3-display-topright">&times;</span>
+                        <h2 class="w3-container-alert-title w3-container-alert">Alert</h2>
+                    </header>
+                    <div class="w3-container">
+                        <p class="w3-container-alert-item w3-container-alert">Please enter a city name</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-container">
+
+            <button id="modal-script-api-error" onclick="document.getElementById('id01').style.display='block'"
+                class="w3-button w3-black modal-alerts">Fade In Modal</button>
+
+            <div id="id01" class="w3-modal w3-animate-opacity">
+                <div class="w3-modal-content w3-card-4">
+                    <header class="w3-container w3-red">
+                        <span onclick="document.getElementById('id01').style.display='none'"
+                            class="w3-button w3-large w3-display-topright">&times;</span>
+                        <h2 class="w3-container-alert-title w3-container-alert">Alert</h2>
+                    </header>
+                    <div class="w3-container">
+                        <p class="w3-container-alert-item w3-container-alert">Please enter a city name</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="./assets/js/script.js"></script>
 </body>
+
 </html>

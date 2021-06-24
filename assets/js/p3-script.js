@@ -1,3 +1,4 @@
+var savebtn = document.querySelector("#save");
 let brewMap = document.querySelector(".map")
 
 var getSearchTerm = function () {
@@ -42,6 +43,40 @@ var formatPhoneNum = function (PhoneNumber) {
     var restNum = phoneNum[3] + phoneNum[4] + phoneNum[5] + "-" + phoneNum[6] + phoneNum[7] + phoneNum[8] + phoneNum[9];
     return areaCode + restNum;
 }
+var saveTasks = function() {
+    var queryString = document.location.href;
+    var brewId = queryString.split("#")[1];
+    var savedIds = localStorage.getItem("brewIds");
+    if (!savedIds) {
+        brewId = JSON.stringify(brewId)
+        localStorage.setItem("brewIds", [brewId]);
+
+    }
+    else {
+    var savedIds = localStorage.getItem("brewIds");
+    var savedIds = [JSON.parse(savedIds)];
+    debugger;
+    savedIds.push(brewId)
+    localStorage.setItem("brewIds", [JSON.stringify(savedIds)]);
+    console.log("id saved!")}
+    
+  };
+  
+  var loadIds = function() {
+    var savedIds = localStorage.getItem("brewIds");
+    // if there are no tasks, set tasks to an empty array and return out of the function
+    if (!savedIds) {
+        console.log("no Ids!")
+      localStorage.setItem("brewIds", []);
+      
+    }
+    else {
+    console.log("Saved tasks found!");
+    // else, load up saved tasks
+  
+    // parse into array of objects
+    savedIds = JSON.parse(savedIds);}
+}
 
 var getMap = function(data){
     var mapScript = document.createElement("script");
@@ -66,3 +101,5 @@ var getMap = function(data){
 }
 
 getSearchTerm();
+loadIds();
+savebtn.addEventListener("click", saveTasks);

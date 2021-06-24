@@ -13,27 +13,29 @@ var generateBreweries = function (brewId) {
         .then(function (response) {
             if (response.ok) {
                 response.json().then(function (data) {
-                    brewCall = document.querySelector(".brew-name")
-                    brewCall.textContent = data.name;
-                    var brewAddress = document.querySelector(".brew-address");
-                    brewAddress.textContent = data.street + " " + data.city + ", " + data.state;
-                    // get formatted phone number
-                    var phoneNumFormatted = formatPhoneNum(data.phone);
-                    console.log(phoneNumFormatted);
-                    var brewPhone = document.querySelector(".phone");
-                    brewPhone.textContent = phoneNumFormatted;
-
-                    var brewURL= document.createElement("a");
+                
+                var brewCall = document.querySelector(".brew-name")
+                brewCall.textContent = data.name;
+                
+                var brewAddress = document.querySelector(".brew-address");
+                brewAddress.textContent = data.street + " " + data.city + ", " + data.state;
+                
+                // get formatted phone number
+                var phoneNumFormatted = formatPhoneNum(data.phone);
+                console.log(phoneNumFormatted);
+                
+                var brewPhone = document.querySelector(".phone");
+                brewPhone.textContent = phoneNumFormatted;
+                
+                var brewURL= document.createElement("a");
                 brewURL.setAttribute("href", data.website_url)
-                URLEl = document.querySelector(".url");
+                var URLEl = document.querySelector(".url");
                 brewURL.textContent = data.website_url;
                 URLEl.appendChild(brewURL);
                 getMap(data)
-                }
-                )
-            }
+            })
         }
-        )
+    })
 };
 
 var formatPhoneNum = function (PhoneNumber) {
@@ -86,19 +88,24 @@ var getMap = function(data){
     var latitude = data.latitude-0;
     var longitude = data.longitude-0;
     console.log(latitude, longitude)
+    if (latitude === 0 || longitude === 0) {
+        return;
+    } else {
     window.initMap = function() {
         map = new google.maps.Map(document.getElementById("map"), {
-          center: { lat: latitude, lng: longitude },
-          zoom: 10,
-        });
+        center: { lat: latitude, lng: longitude },
+        zoom: 10,
+    });console.log("this")
         marker = new google.maps.Marker({
             position: { lat: latitude, lng: longitude},
-            map: map
-        })
-    }
-
+        map: map
+    })
+}
+}
     brewMap.appendChild(mapScript)
 }
+
+
 
 getSearchTerm();
 loadIds();

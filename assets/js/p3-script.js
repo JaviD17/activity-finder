@@ -57,9 +57,9 @@ var formatPhoneNum = function (PhoneNumber) {
     return areaCode + restNum;}
 }
 var saveTasks = function() {
-    let queryString = document.location.href;
-    let brewId = queryString.split("#")[1];
-    let savedIds = localStorage.getItem("brewIds");
+    var queryString = document.location.href;
+    var brewId = queryString.split("#")[1];
+    var savedIds = localStorage.getItem("brewIds");
     if (!savedIds) {
         brewId = JSON.stringify(brewId)
         localStorage.setItem("brewIds", [brewId]);
@@ -67,7 +67,7 @@ var saveTasks = function() {
     }
     else {
     
-    let savedIds = JSON.parse(savedIds);
+    var savedIds = JSON.parse(savedIds);
     console.log(typeof savedIds)
     
     if (typeof savedIds !== "object") {
